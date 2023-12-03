@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Attendance Manager -  Multi-face Detection in Real Time</string>
+    <string name="select_your_account_type">Select your Account type</string>
 </resources>
