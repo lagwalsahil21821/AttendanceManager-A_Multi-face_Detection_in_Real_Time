@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706032416366",
+    "project_id": "attendance-manager-60a6f",
+    "storage_bucket": "attendance-manager-60a6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706032416366:android:ce58223e7ffe69e695587f",
+        "android_client_info": {
+          "package_name": "com.example.attendancemanager_multi_facedetectioninrealtime"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXYs2fY0o1P6QW-N-qEBPmnUcpq9OybR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
