@@ -9,13 +9,13 @@
     <string name="nav_drawer_open">open</string>
     <string name="nav_drawer_close">close</string>
 
-    <string-array name="semester">
+    <array name="semester">
         <item>Select semester</item>
         <item>Odd</item>
         <item>Even</item>
-    </string-array>
+    </array>
 
-    <string-array name="department">
+    <array name="department">
         <item>Select department</item>
         <item>English</item>
         <item>BBA</item>
@@ -24,10 +24,9 @@
         <item>Math</item>
         <item>Sociology</item>
         <item>Economic</item>
+    </array>
 
-    </string-array>
-    <string-array name="year">
-
+    <array name="year">
         <item>Select year</item>
         <item>2010</item>
         <item>2011</item>
@@ -46,8 +45,7 @@
         <item>2024</item>
         <item>2025</item>
         <item>2026</item>
-
-    </string-array>
+    </array>
 
     <string-array name="course">
         <item>C</item>
@@ -57,25 +55,24 @@
         <item>Compiler Design</item>
     </string-array>
 
-    <string-array name="course_code">
+    <array name="course_code">
         <item>CSE-111</item>
         <item>CSE-121</item>
         <item>CSE-231</item>
         <item>CSE-221</item>
         <item>CSE-321</item>
-    </string-array>
-    <string-array name="desig">
+    </array>
+
+    <array name="desig">
         <item>Select Designation</item>
         <item>Professor</item>
         <item>Associate Professor</item>
         <item>Lecturer</item>
-    </string-array>
+    </array>
 
-    <string-array name="shift">
-
-
+    <array name="shift">
         <item>Select shift</item>
         <item>Day</item>
         <item>Evening</item>
-    </string-array>
+    </array>
 </resources>

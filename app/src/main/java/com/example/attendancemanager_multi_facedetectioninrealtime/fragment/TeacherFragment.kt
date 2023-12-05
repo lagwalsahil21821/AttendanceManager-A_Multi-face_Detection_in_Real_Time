@@ -1,5 +1,6 @@
 package com.example.attendancemanager_multi_facedetectioninrealtime.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,12 +9,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import com.example.attendancemanager_multi_facedetectioninrealtime.R
-import com.example.attendancemanager_multi_facedetectioninrealtime.SelectedCourse1Activity
 import com.example.attendancemanager_multi_facedetectioninrealtime.SelectedCourseActivity
+
 import com.example.attendancemanager_multi_facedetectioninrealtime.model.Teacher
 import com.example.attendancemanager_multi_facedetectioninrealtime.storage.SaveUser
 import com.google.firebase.database.*
+
+import com.example.attendancemanager_multi_facedetectioninrealtime.R
+import com.example.attendancemanager_multi_facedetectioninrealtime.SelectedCourse1Activity
+
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,12 +47,13 @@ class TeacherFragment : Fragment() {
     private lateinit var desig: TextView
     private lateinit var tShift: TextView
     private lateinit var depat: TextView
-    private lateinit var teacherAttendanceCV: CardView
-    private lateinit var ViewAttendanceCV: CardView
+    private lateinit var takeAttendanceCV: CardView
+    private lateinit var viewAttendanceCV: CardView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_teacher, container, false)
@@ -54,8 +65,8 @@ class TeacherFragment : Fragment() {
         desig = view.findViewById(R.id.teacherInfoDesig)
         tShift = view.findViewById(R.id.teacherShiftDept)
         depat = view.findViewById(R.id.teacherInfoDept)
-        ViewAttendanceCV = view.findViewById(R.id.ViewAttendanceCV)
-        teacherAttendanceCV = view.findViewById(R.id.teacherAttendanceCV)
+        viewAttendanceCV = view.findViewById(R.id.viewAttendanceCardView)
+        takeAttendanceCV = view.findViewById(R.id.takeAttendanceCardView)
 
         name.text = saveUser.getTeacher(requireContext())?.name
         id.text = saveUser.getTeacher(requireContext())?.id
@@ -63,14 +74,14 @@ class TeacherFragment : Fragment() {
         tShift.text = saveUser.getTeacher(requireContext())?.shift
         depat.text = saveUser.getTeacher(requireContext())?.department
 
-        teacherAttendanceCV.setOnClickListener {
-            val intent = Intent(requireContext(), SelectedCourseActivity::class.java)
-            intent.putExtra("TID", intentedId)
+        viewAttendanceCV.setOnClickListener {
+            val intent = Intent(requireContext(), SelectedCourse1Activity::class.java)
             startActivity(intent)
         }
 
-        ViewAttendanceCV.setOnClickListener {
-            val intent = Intent(requireContext(), SelectedCourse1Activity::class.java)
+        takeAttendanceCV.setOnClickListener {
+            val intent = Intent(requireContext(), SelectedCourseActivity::class.java)
+            intent.putExtra("TID", intentedId)
             startActivity(intent)
         }
 
@@ -110,7 +121,7 @@ class TeacherFragment : Fragment() {
                                                 }
                                             }
                                         }
-                                        teacherAttendanceCV.setOnClickListener {
+                                        takeAttendanceCV.setOnClickListener {
                                             if (!shift.isNullOrEmpty()) {
                                                 val intent = Intent(
                                                     requireContext(),
