@@ -69,6 +69,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <ImageView
+            android:id="@+id/imageBatch"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="32dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:text="Upload"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/btnUpload"
+            android:background="@drawable/shape_gradient_button"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
     </LinearLayout>
 
